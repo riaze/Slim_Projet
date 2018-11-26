@@ -1,0 +1,26 @@
+{% extends 'layout.twig' %}
+
+{% block title %}Liste de mes projets{% endblock %}
+
+
+{% block main %}
+
+    <main class="container">
+        <h1>Index qui provient de la vue TWIG</h1>
+
+        <div class="card-group row">
+            {% for projet in projects %}
+                <div class="card col-4" style="width: 18rem;">
+                    <img class="card-img-top" src="/img/{{ projet.image }}" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ projet.nom }}</h5>
+                        <p class="card-text">{{ projet.description | slice(0,100) }}...</p>
+                        <p class="card-text"><a href="{{ projet.url }}">{{ projet.url }}</a></p>
+                        <a href="/projet/{{ projet.id }}" class="btn btn-primary">Voir le projet</a>
+                    </div>
+                </div>
+
+            {% endfor %}
+        </div>
+    </main>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'layout.twig' %}
+
+{% block main %}
+    {{ dump(truc) }}
+    <main class="container">
+        <h1>{{ projet.nom }}</h1>
+        <ul>
+            <li>Développé le : {{ projet.programmed_at }}</li>
+        </ul>
+        <img src="/img/{{ projet.image }}" alt="{{ projet.name }}">
+        <p>{{ projet.description }}</p>
+
+        <a href="/" class="btn btn-outline-primary">Retour à la liste des projets</a>
+
+    </main>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
