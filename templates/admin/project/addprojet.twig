@@ -1,0 +1,40 @@
+{% extends 'layout.twig' %}
+{% block title %}creation projet{% endblock %}
+{% block main %}
+    <main class="container">
+        <h1>Création de nouveau projet :</h1>
+        <form method="post">
+            <div class="form-group">
+                <label for="nom">Nom :</label>
+                <input type="text" class="form-control" id="nom" name="nom" placeholder="Entrez votre nom">
+            </div>
+            <div class="form-group">
+                <label for="url">URL du projet</label>
+                <input type="text" class="form-control" id="url" name="url" placeholder="URL">
+
+            </div>
+            <div class="form-group">
+                <label for="image">Image</label>
+                <input type="text" class="form-control" id="image" name="image" >
+                Saisir le nom de l'image (upload prévu pour plus
+            </div>
+            <div class="form-group">
+                <label for="description">Descrption du projet(HTML autorisé)</label>
+                <textarea type="text" class="form-control" id="description" name="description"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="is-published">Date de dévelopment</label>
+                <input type="date" class="form-control" id="programme-at" name="programmed-at" >
+            </div>
+            <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="is_published" name="is-published">
+                <label class="form-check-label" for="exampleCheck1">le projet doit-il etre envoyer sur Portfolio ?</label>
+                <small class="form-text text-muted">Si vous décochez la checkbox , le projet n'apparaitra pas dans</small>
+            </div>
+
+            <button type="submit" class="btn btn-success">Submit</button>
+        </form>
+    </main>
+
+
+{% endblock %}

@@ -3,11 +3,13 @@
     "minimum-stability": "stable",
     "require": {
         "slim/slim": "^3.11",
-        "slim/twig-view": "^2.4"
+        "slim/twig-view": "^2.4",
+        "ext-pdo": "*"
     },
     "autoload":{
         "psr-4":{
-            "App\\":"app"
+            "App\\":"app",
+            "Generic\\" : "app/Generic"
 
         }
 

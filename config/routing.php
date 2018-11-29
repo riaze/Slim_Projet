@@ -1,24 +1,31 @@
 <?php
 
+// Routage
+use App\Controller\Admin\ProjectAdminController;
+use App\Controller\ProjectController;
 
-use App\Controller\ProjetController;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
-
-/*$app ->get('/contact', function(ServerRequestInterface $request, ResponseInterface $response){
-
-    $response->getBody()->write('<h1>page de contact</h1>');
-})->setName('contact');
-
-$app ->get('/', function(ServerRequestInterface $request, ResponseInterface $response){
-
-    $response->getBody()->write('<h1>page d\'Accueil</h1>');
-
-})->setName('homepage');*/
-
-$app->group('/projet', function() {
-
-    $this->get('/liste', ProjetController::class . ':list')->setName('product_list');
-
-    $this->get('/{index:\d+}', ProjetController::class . ':show')->setName('product_show');
+// Groupe de routes : les projets
+$app->group('/projet', function () {
+    // Le détail
+    $this->get('/{index:\d+}', ProjectController::class . ':show')->setName('front_project_show');
+    // La liste
+    $this->get('/liste', ProjectController::class . ':liste')->setName('front_project_index');
 });
+
+// Groupe de routes : administration des projets
+$app->group('/admin/projet', function() {
+    $this->get('/', ProjectAdminController::class . ':liste')->setName('back_projet_index');
+    $this->get('/{index:\d+}', ProjectAdminController::class . ':show')->setName('back_projet_show');
+    $this->get('/addprojet', ProjectAdminController::class . ':addprojets')->setName('back_Add_Projets');
+    $this->post('/addprojet', ProjectAdminController::class . ':createCheck')->setName('back_Add_checkProjets');
+});
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,15 @@
+{% extends 'layout.twig' %}
+
+{% block title %}Administration {{ projet.nom }}{% endblock %}
+
+{% block main %}
+    <main class="container">
+        <table class="table table-hover">
+            <tr><td>id</td><td>{{ projet.id }}</td></tr>
+            <tr><td>nom</td><td>{{ projet.nom }}</td></tr>
+            <tr><td>slug</td><td>{{ projet.slug }}</td></tr>
+            <tr><td>description</td><td>{{ projet.description }}</td></tr>
+            <tr><td>isPublished</td><td>{{ projet.isPublished }}</td></tr>
+        </table>
+    </main>
+{% endblock %}
